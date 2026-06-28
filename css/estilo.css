@@ -1,0 +1,576 @@
+/* ================================================
+   estilo.css – Portfólio Francisco Neto
+   Disciplina: Fundamentos da Programação Web
+   UNINTER – ADS
+   ================================================ */
+
+/* ---------- Variáveis de tema (claro – padrão) ---------- */
+:root {
+  --cor-fundo:        #f5f7fa;
+  --cor-fundo-alt:    #ffffff;
+  --cor-navbar:       #1a1a2e;
+  --cor-texto:        #2d2d2d;
+  --cor-texto-suave:  #555555;
+  --cor-primaria:     #0077b6;
+  --cor-primaria-h:   #005f99;
+  --cor-destaque:     #00b4d8;
+  --cor-card:         #ffffff;
+  --cor-card-borda:   #e0e7ef;
+  --cor-badge:        #e0f0ff;
+  --cor-badge-texto:  #0077b6;
+  --cor-tag:          #e8f4fd;
+  --cor-tag-texto:    #005f99;
+  --cor-erro:         #d62828;
+  --cor-sucesso-bg:   #d4edda;
+  --cor-sucesso-txt:  #155724;
+  --cor-rodape:       #1a1a2e;
+  --cor-rodape-txt:   #aaaaaa;
+  --sombra:           0 2px 12px rgba(0,0,0,0.08);
+  --raio:             8px;
+  --transicao:        0.3s ease;
+}
+
+/* ---------- Variáveis de tema escuro ---------- */
+body.dark-mode {
+  --cor-fundo:        #0f0f1a;
+  --cor-fundo-alt:    #16213e;
+  --cor-navbar:       #0d0d1a;
+  --cor-texto:        #e0e0e0;
+  --cor-texto-suave:  #aaaaaa;
+  --cor-primaria:     #00b4d8;
+  --cor-primaria-h:   #0096b7;
+  --cor-destaque:     #48cae4;
+  --cor-card:         #1a1a2e;
+  --cor-card-borda:   #2a2a4a;
+  --cor-badge:        #1e3a5f;
+  --cor-badge-texto:  #90caf9;
+  --cor-tag:          #1e3a5f;
+  --cor-tag-texto:    #90caf9;
+  --cor-erro:         #ff6b6b;
+  --cor-sucesso-bg:   #1e3d2f;
+  --cor-sucesso-txt:  #75c997;
+  --cor-rodape:       #0d0d1a;
+  --cor-rodape-txt:   #666688;
+  --sombra:           0 2px 12px rgba(0,0,0,0.4);
+}
+
+/* ---------- Reset e base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Rolagem suave ao clicar nas âncoras do menu */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.7;
+  transition: background-color var(--transicao), color var(--transicao);
+
+  /* Compensa o menu fixo para o conteúdo não ficar escondido atrás dele */
+  padding-top: 68px;
+}
+
+a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cor-primaria-h);
+  text-decoration: underline;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: fixed;        /* Menu sempre visível no topo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--cor-navbar);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Links do menu */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  color: #cccccc;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--raio);
+  font-size: 0.95rem;
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Botão tema claro/escuro */
+.btn-tema {
+  background: rgba(255,255,255,0.1);
+  color: #cccccc;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--raio);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color var(--transicao);
+  white-space: nowrap;
+}
+
+.btn-tema:hover {
+  background: rgba(255,255,255,0.2);
+  color: #ffffff;
+}
+
+/* Botão hambúrguer (oculto em desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 19px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #cccccc;
+  border-radius: 3px;
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+/* Animação hambúrguer → X quando o menu está aberto */
+.hamburger.ativo span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.ativo span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.ativo span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---------- SEÇÕES GERAIS ---------- */
+.secao {
+  padding: 5rem 1.5rem;
+  background-color: var(--cor-fundo);
+  transition: background-color var(--transicao);
+}
+
+/* Seções alternadas têm fundo levemente diferente */
+.secao-alt {
+  background-color: var(--cor-fundo-alt);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.secao-titulo {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+/* Linha decorativa abaixo do título */
+.secao-titulo::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: var(--cor-destaque);
+  border-radius: 2px;
+  margin-top: 0.4rem;
+}
+
+.secao-desc {
+  color: var(--cor-texto-suave);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.sub-titulo {
+  font-size: 1.15rem;
+  color: var(--cor-texto);
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+/* ---------- SEÇÃO SOBRE MIM ---------- */
+.sobre-grid {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+/* Avatar circular com iniciais */
+.avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-destaque));
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra);
+}
+
+.sobre-texto p {
+  margin-bottom: 1rem;
+  color: var(--cor-texto);
+}
+
+/* Lista rápida de informações pessoais */
+.info-lista {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.info-lista li {
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+}
+
+/* ---------- CARDS DE FORMAÇÃO ---------- */
+.card-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-card-borda);
+  border-radius: var(--raio);
+  padding: 1.1rem 1.3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: var(--sombra);
+  transition: background-color var(--transicao), border-color var(--transicao);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.card p {
+  color: var(--cor-texto-suave);
+  font-size: 0.93rem;
+  margin-top: 0.2rem;
+}
+
+/* Badge "Em andamento" */
+.badge {
+  display: inline-block;
+  background-color: var(--cor-badge);
+  color: var(--cor-badge-texto);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  margin-left: 0.6rem;
+  vertical-align: middle;
+}
+
+/* ---------- PORTFÓLIO – GRID DE PROJETOS ---------- */
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.projeto-card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-card-borda);
+  border-radius: var(--raio);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              background-color var(--transicao), border-color var(--transicao);
+}
+
+.projeto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.projeto-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.projeto-icon {
+  font-size: 1.5rem;
+}
+
+.projeto-header h3 {
+  font-size: 1.05rem;
+  color: var(--cor-texto);
+}
+
+.projeto-card p {
+  color: var(--cor-texto-suave);
+  font-size: 0.92rem;
+  flex-grow: 1;
+}
+
+/* Tags de tecnologias */
+.projeto-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  background-color: var(--cor-tag);
+  color: var(--cor-tag-texto);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+/* Botão "Ver no GitHub" */
+.btn-projeto {
+  display: inline-block;
+  margin-top: auto;
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background-color var(--transicao);
+  text-align: center;
+}
+
+.btn-projeto:hover {
+  background-color: var(--cor-primaria-h);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ---------- SEÇÃO CONTATO – FORMULÁRIO ---------- */
+.form-contato {
+  max-width: 600px;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-grupo label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+}
+
+.obrigatorio {
+  color: var(--cor-erro);
+}
+
+/* Campos de input e textarea */
+.form-grupo input,
+.form-grupo textarea {
+  background-color: var(--cor-card);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-card-borda);
+  border-radius: var(--raio);
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color var(--transicao), background-color var(--transicao);
+  resize: vertical;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(0,119,182,0.15);
+}
+
+/* Campo inválido (classe adicionada pelo JS) */
+.form-grupo input.invalido,
+.form-grupo textarea.invalido {
+  border-color: var(--cor-erro);
+}
+
+/* Mensagens de erro (ocultas por padrão) */
+.erro {
+  color: var(--cor-erro);
+  font-size: 0.83rem;
+  min-height: 1rem;
+}
+
+/* Botão enviar */
+.btn-enviar {
+  align-self: flex-start;
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: var(--raio);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transicao);
+}
+
+.btn-enviar:hover {
+  background-color: var(--cor-primaria-h);
+}
+
+/* Mensagem de sucesso (oculta até o JS exibir) */
+.msg-sucesso {
+  display: none;
+  background-color: var(--cor-sucesso-bg);
+  color: var(--cor-sucesso-txt);
+  border-radius: var(--raio);
+  padding: 1rem 1.2rem;
+  font-weight: 600;
+  font-size: 0.97rem;
+}
+
+/* ---------- RODAPÉ ---------- */
+.rodape {
+  background-color: var(--cor-rodape);
+  color: var(--cor-rodape-txt);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.88rem;
+}
+
+/* Avatar com foto real */
+.avatar-foto {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--sombra);
+  flex-shrink: 0;
+}
+
+/* ================================================
+   RESPONSIVIDADE – telas pequenas (≤ 768px)
+   ================================================ */
+@media (max-width: 768px) {
+
+  /* Mostra o botão hambúrguer */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Menu recolhido por padrão em mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background-color: var(--cor-navbar);
+    padding: 1rem 1.5rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  /* Quando o JS adiciona a classe .aberto, o menu expande */
+  .nav-links.aberto {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.6rem 0.5rem;
+  }
+
+  .btn-tema {
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: left;
+  }
+
+  /* Sobre mim: empilha verticalmente */
+  .sobre-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-lista {
+    justify-content: center;
+  }
+
+  /* Projetos: uma coluna */
+  .projetos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-enviar {
+    width: 100%;
+    text-align: center;
+  }
+}

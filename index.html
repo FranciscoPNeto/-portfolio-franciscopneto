@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francisco Neto | Portfólio</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       MENU DE NAVEGAÇÃO FIXO (sempre visível no topo)
+       ============================================= -->
+  <header class="navbar">
+    <div class="nav-container">
+      <span class="nav-logo">Francisco Neto</span>
+
+      <!-- Botão hambúrguer (visível apenas em telas pequenas) -->
+      <button class="hamburger" id="btnHamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Links de navegação com âncoras -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#sobre"    class="nav-link">Sobre mim</a>
+        <a href="#formacao" class="nav-link">Formação</a>
+        <a href="#portfolio" class="nav-link">Portfólio</a>
+        <a href="#contato"  class="nav-link">Contato</a>
+
+        <!-- Botão de alternância de tema claro/escuro -->
+        <button class="btn-tema" id="btnTema" aria-label="Alternar tema">🌙 Tema Escuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =============================================
+       SEÇÃO 1 – SOBRE MIM
+       ============================================= -->
+  <section id="sobre" class="secao">
+    <div class="container">
+      <h2 class="secao-titulo">Sobre mim</h2>
+
+      <div class="sobre-grid">
+        <!-- Avatar com iniciais (substitui foto, pode ser trocado por <img>) -->
+        <img src="assets/perfil.jpg" alt="Francisco Neto" class="avatar-foto" />
+
+        <div class="sobre-texto">
+          <p>
+            Sou <strong>Francisco Neto</strong>, tenho 23 anos e moro em Barra Mansa/RJ.
+            Trabalho com <strong>Business Intelligence</strong> no ecossistema Microsoft, desenvolvendo soluções 
+            analíticas, dashboards e integrações de dados. Minha trajetória na área começou por iniciativa própria,
+            estudando, desenvolvendo projetos e aprendendo na prática.
+          </p>
+          <p>
+            Tenho direcionado meus estudos para <strong>engenharia de dados</strong> no 
+            ecossistema Microsoft, implementando segurança, integrando ambientes e construindo
+            soluções analíticas que as pessoas realmente usam. Estou em transição para
+            engenharia de dados com foco em pipelines, arquiteturas modernas e
+            processamento em larga escala. Em processo de certificação
+            <strong>DP-600</strong>.
+          </p>
+          <p>
+            Fora do trabalho, gosto de explorar dados de clima e meio ambiente
+            inclusive criei um projeto pessoal monitorando dados climáticos de
+            Volta Redonda, só porque achei interessante.
+          </p>
+
+          <!-- Lista rápida de informações -->
+          <ul class="info-lista">
+            <li>📍 Volta Redonda – RJ</li>
+            <li>🎓 Cursando ADS – UNINTER</li>
+            <li>📜 Certificação DP-600 em andamento</li>
+            <li>🌐 GitHub: <a href="https://github.com/FranciscoPNeto" target="_blank">FranciscoPNeto</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SEÇÃO 2 – FORMAÇÃO
+       ============================================= -->
+  <section id="formacao" class="secao secao-alt">
+    <div class="container">
+      <h2 class="secao-titulo">Formação</h2>
+
+      <!-- Formação educacional -->
+      <h3 class="sub-titulo">Formação Educacional</h3>
+      <div class="card-lista">
+
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <div>
+            <strong>Análise e Desenvolvimento de Sistemas</strong>
+            <span class="badge">Em andamento</span>
+            <p>Centro Universitário Internacional UNINTER</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cursos complementares -->
+      <h3 class="sub-titulo">Cursos e Certificações</h3>
+      <div class="card-lista">
+
+        <div class="card">
+          <div class="card-icon">📜</div>
+          <div>
+            <strong>DP-600 – Microsoft Fabric Analytics Engineer</strong>
+            <span class="badge">Em andamento</span>
+            <p>Certificação oficial Microsoft focada em engenharia de dados com Fabric.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <div>
+            <strong>BI &amp; Visualização</strong>
+            <p>Power BI, Microsoft Fabric, RLS estático e dinâmico, Power BI Service, Gateways de dados.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <div>
+            <strong>Engenharia de Dados</strong>
+            <p>Python, PySpark, SQL, Apache Airflow — pipelines, arquitetura medalhão e processamento em larga escala.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">☁️</div>
+          <div>
+            <strong>Cloud &amp; Automação</strong>
+            <p>Azure, Power Apps, Power Automate, MongoDB — integração de ambientes e soluções low-code.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Idiomas -->
+      <h3 class="sub-titulo">Idiomas</h3>
+      <div class="card-lista">
+        <div class="card">
+          <div class="card-icon">🇧🇷</div>
+          <div><strong>Português</strong> — Nativo</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🇺🇸</div>
+          <div><strong>Inglês</strong> — Intermediário (leitura técnica avançada)</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
+       SEÇÃO 3 – PORTFÓLIO
+       ============================================= -->
+  <section id="portfolio" class="secao">
+    <div class="container">
+      <h2 class="secao-titulo">Portfólio</h2>
+      <p class="secao-desc">Projetos que desenvolvi e estão disponíveis no GitHub.</p>
+
+      <div class="projetos-grid">
+
+        <!-- Projeto 1 -->
+        <div class="projeto-card">
+          <div class="projeto-header">
+            <span class="projeto-icon">🌦️</span>
+            <h3>VR Climate Analytics</h3>
+          </div>
+          <p>
+            Pipeline de análise climática para Volta Redonda usando a API Open-Meteo.
+            Construí a arquitetura medalhão inteira no Microsoft Fabric da ingestão
+            bruta no Bronze até os dados prontos para consumo no Gold, tudo via PySpark.
+          </p>
+          <div class="projeto-tags">
+            <span class="tag">Python</span>
+            <span class="tag">PySpark</span>
+            <span class="tag">Microsoft Fabric</span>
+          </div>
+          <a href="https://github.com/FranciscoPNeto/VR_climate_analytics"
+             target="_blank" class="btn-projeto">
+            Ver no GitHub →
+          </a>
+        </div>
+
+        <!-- Projeto 2 -->
+        <div class="projeto-card">
+          <div class="projeto-header">
+            <span class="projeto-icon">🛒</span>
+            <h3>Brazilian E-Commerce</h3>
+          </div>
+          <p>
+            Pipeline de dados usando o dataset público da Olist. O foco foi
+            entender o ciclo completo: ingestão, transformação e análise dos dados
+            de pedidos, produtos e clientes de um e-commerce real.
+          </p>
+          <div class="projeto-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">SQL</span>
+          </div>
+          <a href="https://github.com/FranciscoPNeto/brazilian-ecommerce"
+             target="_blank" class="btn-projeto">
+            Ver no GitHub →
+          </a>
+        </div>
+
+        <!-- Projeto 3 -->
+        <div class="projeto-card">
+          <div class="projeto-header">
+            <span class="projeto-icon">📡</span>
+            <h3>Data Collect</h3>
+          </div>
+          <p>
+            Experimentos com coleta de dados de fontes diversas — APIs públicas
+            e outras origens. Usei para testar abordagens de ingestão antes de
+            aplicar em projetos maiores.
+          </p>
+          <div class="projeto-tags">
+            <span class="tag">Python</span>
+            <span class="tag">APIs</span>
+          </div>
+          <a href="https://github.com/FranciscoPNeto/data-collect"
+             target="_blank" class="btn-projeto">
+            Ver no GitHub →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SEÇÃO 4 – CONTATO
+       ============================================= -->
+  <section id="contato" class="secao secao-alt">
+    <div class="container">
+      <h2 class="secao-titulo">Contato</h2>
+      <p class="secao-desc">Quer trocar uma ideia sobre dados, projetos ou oportunidades? Me manda uma mensagem.</p>
+
+      <!-- Formulário com validação em JavaScript -->
+      <form class="form-contato" id="formContato" novalidate>
+
+        <!-- Campo Nome -->
+        <div class="form-grupo">
+          <label for="nome">Nome <span class="obrigatorio">*</span></label>
+          <input type="text" id="nome" name="nome"
+                 placeholder="Seu nome completo" autocomplete="name" />
+          <!-- Mensagem de erro exibida pelo JS -->
+          <span class="erro" id="erroNome"></span>
+        </div>
+
+        <!-- Campo E-mail -->
+        <div class="form-grupo">
+          <label for="email">E-mail <span class="obrigatorio">*</span></label>
+          <input type="email" id="email" name="email"
+                 placeholder="seu@email.com" autocomplete="email" />
+          <span class="erro" id="erroEmail"></span>
+        </div>
+
+        <!-- Campo Mensagem -->
+        <div class="form-grupo">
+          <label for="mensagem">Mensagem <span class="obrigatorio">*</span></label>
+          <textarea id="mensagem" name="mensagem" rows="5"
+                    placeholder="Escreva sua mensagem aqui..."></textarea>
+          <span class="erro" id="erroMensagem"></span>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+
+        <!-- Mensagem de sucesso (ocultada até o JS exibi-la) -->
+        <div class="msg-sucesso" id="msgSucesso" role="alert">
+          ✅ Mensagem enviada com sucesso! Em breve entrarei em contato.
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé simples -->
+  <footer class="rodape">
+    <p>© 2026 Francisco Neto · ADS – UNINTER · Volta Redonda, RJ</p>
+  </footer>
+
+  <!-- Script externo (obrigatório Vanilla JS) -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
